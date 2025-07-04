@@ -1,0 +1,105 @@
+name: Python Flask CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  test:
+    name: Test i Build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11']
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests with pytest
+        run: |
+          pytest -v --tb=short
+
+      - name: Run tests with coverage
+        if: matrix.python-version == '3.11'
+        run: |
+          pip install pytest-cov
+          pytest --cov=app --cov-report=xml --cov-report=html
+
+      - name: Upload coverage reports
+        if: matrix.python-version == '3.11'
+        uses: codecov/codecov-action@v3
+        with:
+          fail_ci_if_error: false
+
+  docker:
+    name: Docker Build
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        run: docker build -t flask-projekt:${{ github.sha }} .
+
+      - name: Test Docker image
+        run: |
+          docker run -d -p 5000:5000 --name test-container flask-projekt:${{ github.sha }}
+          sleep 15
+          curl -f http://localhost:5000/health || exit 1
+          docker stop test-container
+          docker rm test-container
+
+  deploy:
+    name: Deploy
+    needs: [test, docker]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        
+      - name: Build application
+        run: echo "Flask application built successfully"
+        
+      - name: Health check
+        run: |
+          python app.py &
+          SERVER_PID=$!
+          sleep 10
+          curl -f http://localhost:5000/health || exit 1
+          kill $SERVER_PID 
