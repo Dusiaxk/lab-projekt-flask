@@ -24,7 +24,7 @@ Projekt końcowy obejmujący zakres laboratoriów 1–3 z przedmiotu: Git/GitHub
 
 ---
 
-## 📌 Opis
+## Opis
 
 Aplikacja webowa w **Python Flask**, której celem jest demonstracja praktycznych umiejętności z laboratoriów:
 
@@ -36,7 +36,7 @@ Aplikacja udostępnia REST API do zarządzania zadaniami (todos) i zawiera podst
 
 ---
 
-## ⚙️ Technologie
+## Technologie
 
 * **Język backendowy**: Python 3.11 + Flask
 * **Testy**: pytest, pytest-flask
@@ -47,7 +47,7 @@ Aplikacja udostępnia REST API do zarządzania zadaniami (todos) i zawiera podst
 
 ---
 
-## ✅ Funkcje
+## Funkcje
 
 * REST API dla CRUD zadań
 * Endpoint `health check`
@@ -59,7 +59,7 @@ Aplikacja udostępnia REST API do zarządzania zadaniami (todos) i zawiera podst
 
 ---
 
-## 🧹 Instalacja
+## Instalacja
 
 ### Wersja lokalna
 
@@ -86,7 +86,7 @@ docker run -p 5000:5000 flask-projekt
 
 ---
 
-## 💻 Użycie
+## Użycie
 
 Aplikacja uruchamia się domyślnie pod adresem:
 `http://localhost:5000`
@@ -101,14 +101,14 @@ Aplikacja uruchamia się domyślnie pod adresem:
 
 ---
 
-## 🔌 API
+## API
 
 ### `GET /`
 
 ```json
 {
   "message": "Projekt zaliczeniowy - Lab 1-3 (Python Flask)",
-  "author": "Twoje Imię",
+  "author": "Klaudia Derlatka",
   "version": "1.0.0"
 }
 ```
@@ -118,7 +118,7 @@ Aplikacja uruchamia się domyślnie pod adresem:
 ```json
 {
   "status": "OK",
-  "timestamp": "2024-01-01T00:00:00.000000",
+  "timestamp": "2025-07-04T00:00:00.000000",
   "uptime": 3600.0
 }
 ```
@@ -168,7 +168,7 @@ Testy obejmują:
 
 ---
 
-## 🐳 Docker
+## Docker
 
 ### Budowanie obrazu
 
@@ -190,7 +190,7 @@ curl http://localhost:5000/health
 
 ---
 
-## ⚙️ CI/CD
+## CI/CD
 
 GitHub Actions wykonuje:
 
@@ -210,7 +210,7 @@ GitHub Actions wykonuje:
 
 ---
 
-## ☁️ Deployment
+## Deployment
 
 ### Heroku
 
@@ -229,7 +229,7 @@ Konfiguracja znajduje się w `.github/workflows/python-ci-cd.yml`
 
 ---
 
-## 📚 Laboratoria
+## Laboratoria
 
 ### Lab 1: Git/GitHub
 
@@ -256,7 +256,7 @@ Konfiguracja znajduje się w `.github/workflows/python-ci-cd.yml`
 
 ---
 
-## 🛠️ Workflow Git
+## Workflow Git
 
 * `main` – produkcja
 * `develop` – rozwój
@@ -266,7 +266,7 @@ Konfiguracja znajduje się w `.github/workflows/python-ci-cd.yml`
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork repo
 2. `git checkout -b feature/nazwa`
@@ -276,13 +276,14 @@ Konfiguracja znajduje się w `.github/workflows/python-ci-cd.yml`
 
 ---
 
-## 📄 Licencja
+## Licencja
 
 Projekt objęty licencją [MIT](LICENSE).
 
 ---
 
-## 🧑‍💻 Autor
+## Autor
 
-**Klaudia Derlatka** – projekt zaliczeniowy z GIT 💙
+**Klaudia Derlatka** – projekt zaliczeniowy z GIT
+
 GitHub: [@Dusiaxk](https://github.com/Dusiaxk)
