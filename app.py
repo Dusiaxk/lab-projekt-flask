@@ -83,6 +83,15 @@ def api_metrics():
         "version": "1.0.0"
     })
 
+@app.route('/api/status')
+def api_status():
+    """Status API endpoint"""
+    return jsonify({
+        "api_status": "running",
+        "environment": os.environ.get('FLASK_ENV', 'development'),
+        "timestamp": datetime.utcnow().isoformat()
+    })
+
 @app.errorhandler(404)
 def not_found(error):
     """Handler dla 404"""
