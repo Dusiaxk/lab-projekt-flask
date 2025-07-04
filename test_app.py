@@ -90,6 +90,24 @@ class TestFlaskApp:
         assert 'Python' in data['technologies']
         assert 'Flask' in data['technologies']
     
+    def test_api_status_endpoint(self, client):
+        """Test endpointu API status"""
+        response = client.get('/api/status')
+        assert response.status_code == 200
+        
+        data = json.loads(response.data)
+        assert 'api_status' in data
+        assert data['api_status'] == 'running'
+    
+    def test_api_metrics_endpoint(self, client):
+        """Test endpointu metrics"""
+        response = client.get('/api/metrics')
+        assert response.status_code == 200
+        
+        data = json.loads(response.data)
+        assert 'requests_count' in data
+        assert 'uptime_seconds' in data
+    
     def test_404_handler(self, client):
         """Test handlera 404"""
         response = client.get('/nieistniejacy-endpoint')
