@@ -74,6 +74,15 @@ def about():
         ]
     })
 
+@app.route('/api/metrics')
+def api_metrics():
+    """Metryki aplikacji"""
+    return jsonify({
+        "requests_count": 1000,
+        "uptime_seconds": time.time(),
+        "version": "1.0.0"
+    })
+
 @app.errorhandler(404)
 def not_found(error):
     """Handler dla 404"""
