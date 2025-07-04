@@ -1,0 +1,5 @@
+Zadanie na zaliczenie GIT
+Klaudia Derlatka
+
+Repozytorium - https://github.com/Dusiaxk/lab-projekt-flask  
+Opis - Aplikacja Python Flask z REST API, testami pytest, Docker, CI/CD GitHub Actions, demonstrująca git workflow z gałęziami, PR i rozwiązywaniem konfliktów.

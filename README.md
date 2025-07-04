@@ -1,124 +1,132 @@
-# Lab Projekt Zaliczenie - Python Flask
+# 💻 Lab Projekt Zaliczeniowy – Python Flask
 
 ![CI/CD Status](https://github.com/Dusiaxk/REPOSITORY/workflows/Python%20Flask%20CI/CD/badge.svg)
 
-Projekt zaliczeniowy demonstrujący umiejętności z laboratoriów 1-3: Git/GitHub, zaawansowany workflow oraz CI/CD w **Python Flask**.
+Projekt końcowy obejmujący zakres laboratoriów 1–3 z przedmiotu: Git/GitHub, workflow developerski oraz CI/CD na przykładzie aplikacji webowej opartej o **Python Flask**.
 
-## 📋 Spis treści
+---
 
-- [Opis projektu](#opis-projektu)
-- [Technologie](#technologie)
-- [Funkcjonalności](#funkcjonalności)
-- [Instalacja](#instalacja)
-- [Użycie](#użycie)
-- [API Endpoints](#api-endpoints)
-- [Testowanie](#testowanie)
-- [Docker](#docker)
-- [CI/CD Pipeline](#cicd-pipeline)
-- [Deployment](#deployment)
-- [Laboratorium](#laboratorium)
+## 📁 Spis treści
 
-## 🎯 Opis projektu
+* [Opis](#opis)
+* [Technologie](#technologie)
+* [Funkcje](#funkcje)
+* [Instalacja](#instalacja)
+* [Użycie](#u017cycie)
+* [API](#api)
+* [Testowanie](#testowanie)
+* [Docker](#docker)
+* [CI/CD](#cicd)
+* [Deployment](#deployment)
+* [Laboratoria](#laboratoria)
+* [Workflow Git](#workflow-git)
+* [Contributing](#contributing)
+* [Licencja](#licencja)
+* [Autor](#autor)
 
-Prosta aplikacja webowa w **Python Flask**, która demonstruje:
+---
 
-- **Lab 1**: Podstawy Git/GitHub - tworzenie repozytorium, commits, dokumentacja
-- **Lab 2**: Zaawansowany Git workflow - gałęzie, pull requesty, rozwiązywanie konfliktów
-- **Lab 3**: CI/CD i deployment w chmurze - automatyzacja, testy, wdrażanie
+## 📌 Opis
 
-Aplikacja udostępnia REST API do zarządzania zadaniami (todos) oraz informacje o projekcie.
+Aplikacja webowa w **Python Flask**, której celem jest demonstracja praktycznych umiejętności z laboratoriów:
 
-## 🛠️ Technologie
+* **Lab 1**: Praca z Git/GitHub – repozytorium, commity, pliki konfiguracyjne
+* **Lab 2**: Zaawansowany workflow – branchowanie, pull requesty, rozwiązywanie konfliktów
+* **Lab 3**: CI/CD – testowanie, automatyzacja i wdrożenie na środowisko zewnętrzne
 
-- **Backend**: Python 3.11, Flask
-- **Testy**: pytest, pytest-flask
-- **Konteneryzacja**: Docker, Gunicorn
-- **CI/CD**: GitHub Actions
-- **Deployment**: Heroku / AWS / Azure
-- **Dokumentacja**: Markdown
+Aplikacja udostępnia REST API do zarządzania zadaniami (todos) i zawiera podstawowe informacje o systemie.
 
-## ✨ Funkcjonalności
+---
 
-- ✅ REST API do zarządzania zadaniami
-- ✅ Health check endpoint
-- ✅ Informacje o projekcie i użytych technologiach
-- ✅ Obsługa błędów 404 i 500
-- ✅ Automatyczne testy z pytest
-- ✅ Docker containerization z Gunicorn
-- ✅ CI/CD pipeline z GitHub Actions
-- ✅ Automatyczny deployment
+## ⚙️ Technologie
 
-## 🚀 Instalacja
+* **Język backendowy**: Python 3.11 + Flask
+* **Testy**: pytest, pytest-flask
+* **Konteneryzacja**: Docker, Gunicorn
+* **CI/CD**: GitHub Actions
+* **Deployment**: Heroku / AWS / Azure
+* **Dokumentacja**: Markdown
 
-### Lokalnie
+---
+
+## ✅ Funkcje
+
+* REST API dla CRUD zadań
+* Endpoint `health check`
+* Informacje o technologii i wersji aplikacji
+* Obsługa błędów HTTP 404 i 500
+* Automatyczne testy jednostkowe i integracyjne
+* Konteneryzacja Docker + Gunicorn
+* Pipeline CI/CD z testami i deploymentem
+
+---
+
+## 🧹 Instalacja
+
+### Wersja lokalna
 
 ```bash
-# Klonowanie repozytorium
 git clone https://github.com/Dusiaxk/lab-projekt-zaliczenie-flask.git
-
-# Przejście do katalogu projektu
 cd lab-projekt-zaliczenie-flask
 
-# Utworzenie środowiska wirtualnego
 python -m venv venv
-
-# Aktywacja środowiska (Windows)
+# Windows
 venv\Scripts\activate
-# Aktywacja środowiska (Linux/Mac)
+# Linux/Mac
 source venv/bin/activate
 
-# Instalacja zależności
 pip install -r requirements.txt
-
-# Uruchomienie aplikacji
 python app.py
 ```
 
-### Docker
+### Wersja Docker
 
 ```bash
-# Budowanie obrazu Docker
 docker build -t flask-projekt .
-
-# Uruchomienie kontenera
 docker run -p 5000:5000 flask-projekt
 ```
 
+---
+
 ## 💻 Użycie
 
-Po uruchomieniu aplikacja będzie dostępna pod adresem: `http://localhost:5000`
+Aplikacja uruchamia się domyślnie pod adresem:
+`http://localhost:5000`
 
-### Główne endpointy:
+### Endpointy:
 
-- `GET /` - Informacje o projekcie
-- `GET /health` - Status zdrowia aplikacji
-- `GET /about` - Szczegółowe informacje o technologiach
-- `GET /api/todos` - Lista zadań
-- `POST /api/todos` - Utworzenie nowego zadania
+* `GET /` – informacje o projekcie
+* `GET /health` – stan aplikacji
+* `GET /about` – szczegóły techniczne
+* `GET /api/todos` – lista zadań
+* `POST /api/todos` – dodanie zadania
 
-## 📚 API Endpoints
+---
 
-### GET /
+## 🔌 API
+
+### `GET /`
+
 ```json
 {
   "message": "Projekt zaliczeniowy - Lab 1-3 (Python Flask)",
   "author": "Twoje Imię",
-  "version": "1.0.0",
-  "description": "Aplikacja demonstrująca umiejętności Git/GitHub, workflow i CI/CD"
-}
-```
-
-### GET /health
-```json
-{
-  "status": "OK",
-  "timestamp": "2024-01-01T00:00:00.000000",
-  "uptime": 3600.0,
   "version": "1.0.0"
 }
 ```
 
-### GET /api/todos
+### `GET /health`
+
+```json
+{
+  "status": "OK",
+  "timestamp": "2024-01-01T00:00:00.000000",
+  "uptime": 3600.0
+}
+```
+
+### `GET /api/todos`
+
 ```json
 [
   {
@@ -129,12 +137,15 @@ Po uruchomieniu aplikacja będzie dostępna pod adresem: `http://localhost:5000`
 ]
 ```
 
-### POST /api/todos
+### `POST /api/todos`
+
 ```bash
 curl -X POST http://localhost:5000/api/todos \
   -H "Content-Type: application/json" \
   -d '{"title": "Nowe zadanie"}'
 ```
+
+---
 
 ## 🧪 Testowanie
 
@@ -142,7 +153,7 @@ curl -X POST http://localhost:5000/api/todos \
 # Uruchomienie testów
 pytest
 
-# Testy z szczegółowym outputem
+# Testy z verbose
 pytest -v
 
 # Pokrycie kodu testami
@@ -151,109 +162,129 @@ pytest --cov=app --cov-report=html
 ```
 
 Testy obejmują:
-- Testy jednostkowe wszystkich endpointów
-- Testy integracyjne API Flask
-- Walidację JSON responses
-- Obsługę błędów HTTP
+
+* testy jednostkowe endpointów
+* integrację API Flask
+* walidację odpowiedzi JSON
+* obsługę błędów HTTP
+
+---
 
 ## 🐳 Docker
 
 ### Budowanie obrazu
+
 ```bash
 docker build -t flask-projekt .
 ```
 
 ### Uruchomienie
+
 ```bash
 docker run -p 5000:5000 flask-projekt
 ```
 
 ### Testowanie kontenera
+
 ```bash
-# Sprawdzenie health check
 curl http://localhost:5000/health
 ```
 
-## 🔄 CI/CD Pipeline
+---
 
-Pipeline GitHub Actions wykonuje:
+## ⚙️ CI/CD
 
-1. **Test**: 
-   - Testowanie na Python 3.9, 3.10, 3.11
-   - Uruchomienie testów pytest
-   - Generowanie raportu pokrycia
+GitHub Actions wykonuje:
 
-2. **Docker Build**:
-   - Budowanie obrazu Docker
-   - Testowanie kontenera z Gunicorn
+1. **Testy**
 
-3. **Deploy**:
-   - Automatyczne wdrożenie na main branch
-   - Health check po deployment
+   * Python 3.9 / 3.10 / 3.11
+   * pytest + pokrycie kodu
 
-## 🚀 Deployment
+2. **Build Dockera**
+
+   * docker build + testy kontenera
+
+3. **Deployment**
+
+   * automatyczne wdrożenie z `main`
+   * health check po deploymencie
+
+---
+
+## ☁️ Deployment
 
 ### Heroku
-```bash
-# Instalacja Heroku CLI i login
-heroku create nazwa-aplikacji
 
-# Dodanie Procfile
+```bash
+heroku create nazwaprojektu
 echo "web: gunicorn app:app" > Procfile
 
-# Deploy
 git add Procfile
-git commit -m "feat: add Procfile for Heroku"
+git commit -m "feat: dodanie Procfile"
 git push heroku main
 ```
 
-### AWS/Azure
-Szczegóły konfiguracji w `.github/workflows/python-ci-cd.yml`
+### AWS / Azure
 
-## 🎓 Laboratorium
+Konfiguracja znajduje się w `.github/workflows/python-ci-cd.yml`
 
-### Lab 1: Podstawy Git/GitHub ✅
-- [x] Utworzenie repozytorium
-- [x] Podstawowe commits
-- [x] Dokumentacja README.md
-- [x] Konfiguracja .gitignore
+---
 
-### Lab 2: Zaawansowany Git workflow ✅
-- [x] Praca z gałęziami (feature branches)
-- [x] Pull requesty i code review
-- [x] Rozwiązywanie konfliktów merge
-- [x] Tagowanie wersji (semantic versioning)
-- [x] Testy automatyczne z pytest
+## 📚 Laboratoria
 
-### Lab 3: CI/CD i deployment ✅
-- [x] GitHub Actions pipeline
-- [x] Docker konteneryzacja z Gunicorn
-- [x] Automatyczne testy w CI
-- [x] Deployment w chmurze
-- [x] Health checks i monitoring
+### Lab 1: Git/GitHub
 
-## 📝 Workflow Git
+* [x] Repozytorium
+* [x] Commity
+* [x] README.md
+* [x] .gitignore
 
-Projekt wykorzystuje:
-- **Main branch** - wersja produkcyjna
-- **Develop branch** - wersja deweloperska
-- **Feature branches** - nowe funkcjonalności
-- **Pull requests** - code review
-- **Semantic versioning** - tagowanie wersji
+### Lab 2: Git Workflow
+
+* [x] Branching
+* [x] Pull Requesty
+* [x] Merge conflicts
+* [x] Tagowanie wersji
+* [x] Testy jednostkowe
+
+### Lab 3: CI/CD
+
+* [x] GitHub Actions
+* [x] Docker + Gunicorn
+* [x] Automatyczne testy
+* [x] Deployment
+* [x] Health check
+
+---
+
+## 🛠️ Workflow Git
+
+* `main` – produkcja
+* `develop` – rozwój
+* `feature/*` – nowe funkcje
+* Pull Requesty + code review
+* Semantic versioning
+
+---
 
 ## 🤝 Contributing
 
-1. Fork repozytorium
-2. Utwórz feature branch (`git checkout -b feature/nowa-funkcjonalnosc`)
-3. Commit zmian (`git commit -m 'feat: dodanie nowej funkcjonalności'`)
-4. Push do branch (`git push origin feature/nowa-funkcjonalnosc`)
-5. Utwórz Pull Request
+1. Fork repo
+2. `git checkout -b feature/nazwa`
+3. `git commit -m 'feat: dodanie xyz'`
+4. `git push origin feature/nazwa`
+5. Stwórz Pull Request
+
+---
 
 ## 📄 Licencja
 
-Projekt jest licencjonowany pod [licencją MIT](LICENSE).
+Projekt objęty licencją [MIT](LICENSE).
 
-## 👨‍💻 Autor
+---
 
-**Klaudia Derlatka** - Projekt zaliczeniowy GIT
+## 🧑‍💻 Autor
+
+**Klaudia Derlatka** – projekt zaliczeniowy z GIT 💙
 GitHub: [@Dusiaxk](https://github.com/Dusiaxk)
