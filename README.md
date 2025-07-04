@@ -1,6 +1,6 @@
 # Lab Projekt Zaliczenie - Python Flask
 
-![CI/CD Status](https://github.com/USERNAME/REPOSITORY/workflows/Python%20Flask%20CI/CD/badge.svg)
+![CI/CD Status](https://github.com/Dusiaxk/REPOSITORY/workflows/Python%20Flask%20CI/CD/badge.svg)
 
 Projekt zaliczeniowy demonstrujący umiejętności z laboratoriów 1-3: Git/GitHub, zaawansowany workflow oraz CI/CD w **Python Flask**.
 
@@ -54,7 +54,7 @@ Aplikacja udostępnia REST API do zarządzania zadaniami (todos) oraz informacje
 
 ```bash
 # Klonowanie repozytorium
-git clone https://github.com/USERNAME/lab-projekt-zaliczenie-flask.git
+git clone https://github.com/Dusiaxk/lab-projekt-zaliczenie-flask.git
 
 # Przejście do katalogu projektu
 cd lab-projekt-zaliczenie-flask
@@ -255,11 +255,5 @@ Projekt jest licencjonowany pod [licencją MIT](LICENSE).
 
 ## 👨‍💻 Autor
 
-**Twoje Imię** - Projekt zaliczeniowy  
-GitHub: [@USERNAME](https://github.com/USERNAME)
-
-## 🙏 Podziękowania
-
-- Materiały z laboratoriów 1-3
-- Dokumentacja Flask, pytest, Docker
-- GitHub Actions Community 
+**Klaudia Derlatka** - Projekt zaliczeniowy  
+GitHub: [@Dusiaxk](https://github.com/Dusiaxk)

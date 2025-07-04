@@ -74,6 +74,15 @@ def about():
         ]
     })
 
+@app.route('/api/metrics')
+def api_metrics():
+    """Metryki aplikacji"""
+    return jsonify({
+        "requests_count": 1000,
+        "uptime_seconds": time.time(),
+        "version": "1.0.0"
+    })
+
 @app.route('/api/status')
 def api_status():
     """Status API endpoint"""
@@ -82,7 +91,6 @@ def api_status():
         "environment": os.environ.get('FLASK_ENV', 'development'),
         "timestamp": datetime.utcnow().isoformat()
     })
-
 
 @app.errorhandler(404)
 def not_found(error):
