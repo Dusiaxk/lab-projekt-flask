@@ -1,7 +1,5 @@
 # 💻 Lab Projekt Zaliczeniowy – Python Flask
 
-![CI/CD Status](https://github.com/Dusiaxk/REPOSITORY/workflows/Python%20Flask%20CI/CD/badge.svg)
-
 Projekt końcowy obejmujący zakres laboratoriów 1–3 z przedmiotu: Git/GitHub, workflow developerski oraz CI/CD na przykładzie aplikacji webowej opartej o **Python Flask**.
 
 ---
