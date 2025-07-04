@@ -255,5 +255,5 @@ Projekt jest licencjonowany pod [licencją MIT](LICENSE).
 
 ## 👨‍💻 Autor
 
-**Klaudia Derlatka** - Projekt zaliczeniowy  
+**Klaudia Derlatka** - Projekt zaliczeniowy GIT
 GitHub: [@Dusiaxk](https://github.com/Dusiaxk)
