@@ -145,7 +145,7 @@ curl -X POST http://localhost:5000/api/todos \
 
 ---
 
-## 🧪 Testowanie
+## Testowanie
 
 ```bash
 # Uruchomienie testów
